@@ -12,10 +12,10 @@ public class AddPortfolioRequest {
 
     private String title;
     private String name;
-    private String profileImage;
-    private String phoneNum;
+    private String profileimage;
+    private String phonenum;
     private String email;
-    private String oneLineContent;
+    private String onelinecontent;
     private String stack;
     private String content;
 
@@ -23,10 +23,10 @@ public class AddPortfolioRequest {
         return Portfolio.builder()
                 .title(title)
                 .name(name)
-                .profileImage(profileImage)
-                .phoneNum(phoneNum)
+                .profileimage(profileimage)
+                .phonenum(phonenum)
                 .email(email)
-                .oneLineContent(oneLineContent)
+                .onelinecontent(onelinecontent)
                 .stack(stack)
                 .content(content)
                 .build();

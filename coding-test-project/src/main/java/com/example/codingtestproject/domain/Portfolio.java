@@ -1,10 +1,7 @@
 package com.example.codingtestproject.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -12,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Table(name = "portfolios")
 @Entity
-@Getter
+@Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Portfolio {
 
@@ -21,64 +18,67 @@ public class Portfolio {
     @Column(name = "portfolio_id", updatable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "profileimage", nullable = false)
-    private String profileImage;
+    @Column(name = "profileimage")
+    private String profileimage;
 
-    @Column(name = "phonenum", nullable = false)
-    private String phoneNum;
+    @Column(name = "phonenum")
+    private String phonenum;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "onelinecontent", nullable = false)
-    private String oneLineContent;
+    @Column(name = "onelinecontent")
+    private String onelinecontent;
 
-    @Column(name = "stack", nullable = false)
+    @Column(name = "stack")
     private String stack;
 
-    @Column(name = "content", nullable = false)
+    @Column(name = "content")
     private String content;
 
-    /*@CreatedDate // 엔티티가 생성될 때 생성 시간 저장
-    @Column(name = "create_time")
-    private LocalDateTime createTime;
+    @CreatedDate // 엔티티가 생성될 때 생성 시간 저장
+    @Column(name = "createtime")
+    private LocalDateTime createtime;
 
     @LastModifiedDate // 엔티티가 수정될 때 수정 시간 저장
-    @Column(name = "update_time")
-    private LocalDateTime updateTime;*/
+    @Column(name = "updatetime")
+    private LocalDateTime updatetime;
+
+    @Column(name = "main")
+    private boolean main;
 
     @Builder
     public Portfolio(String title, String name,
-                     String profileImage, String phoneNum,
-                     String email, String oneLineContent,
+                     String profileimage, String phonenum,
+                     String email, String onelinecontent,
                      String stack, String content){
         this.title = title;
         this.name = name;
-        this.profileImage = profileImage;
-        this.phoneNum = phoneNum;
+        this.profileimage = profileimage;
+        this.phonenum = phonenum;
         this.email = email;
-        this.oneLineContent = oneLineContent;
+        this.onelinecontent = onelinecontent;
         this.stack = stack;
         this.content = content;
     }
 
     // 포트폴리오 수정
     public void update(String title, String name,
-                       String profileImage, String phoneNum,
-                       String email, String oneLineContent,
+                       String profileimage, String phonenum,
+                       String email, String onelinecontent,
                        String stack, String content){
         this.title = title;
         this.name = name;
-        this.profileImage = profileImage;
-        this.phoneNum = phoneNum;
+        this.profileimage = profileimage;
+        this.phonenum = phonenum;
         this.email = email;
-        this.oneLineContent = oneLineContent;
+        this.onelinecontent = onelinecontent;
         this.stack = stack;
         this.content = content;
     }

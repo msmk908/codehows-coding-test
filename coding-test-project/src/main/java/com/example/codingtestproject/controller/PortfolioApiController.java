@@ -2,7 +2,7 @@ package com.example.codingtestproject.controller;
 
 import com.example.codingtestproject.domain.Portfolio;
 import com.example.codingtestproject.dto.AddPortfolioRequest;
-import com.example.codingtestproject.dto.PortfolioResponse;
+import com.example.codingtestproject.dto.PortfolioListViewResponse;
 import com.example.codingtestproject.dto.UpdatePortfolioRequest;
 import com.example.codingtestproject.service.PortfolioService;
 import lombok.RequiredArgsConstructor;
@@ -31,10 +31,10 @@ public class PortfolioApiController {
     }
 
     @GetMapping("/api/portfolios")
-    public ResponseEntity<List<PortfolioResponse>> findAllPortfolio(){
-        List<PortfolioResponse> portfolios = portfolioService.findAll()
+    public ResponseEntity<List<PortfolioListViewResponse>> findAllPortfolio(){
+        List<PortfolioListViewResponse> portfolios = portfolioService.findAll()
                 .stream()
-                .map(PortfolioResponse::new)
+                .map(PortfolioListViewResponse::new)
                 .toList();
 
         return ResponseEntity.ok()
@@ -43,11 +43,11 @@ public class PortfolioApiController {
 
     @GetMapping("/api/portfolios/{id}")
     // @PathVariable long id  <- 여기서 URL에 있는 {id} 값을 추출
-    public ResponseEntity<PortfolioResponse> findPortfolio(@PathVariable long id) {
+    public ResponseEntity<PortfolioListViewResponse> findPortfolio(@PathVariable long id) {
         Portfolio portfolio = portfolioService.findById(id);
 
         return ResponseEntity.ok()
-                .body(new PortfolioResponse(portfolio));
+                .body(new PortfolioListViewResponse(portfolio));
     }
 
     @DeleteMapping("/api/portfolios/{id}")

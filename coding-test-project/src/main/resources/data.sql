@@ -1,2 +1,2 @@
-INSERT INTO portfolios (title, name, profileimage, phonenum, email, onelinecontent, stack, content, create_time, update_time) VALUES ('꽁꽁 얼어붙은 한강 위로', '백민규', 'dddd', '01035971261', 'msmk908@naver.com', '고양이', '스프링부트', '고양이가 걸어다닙니다.', now(), now())
-INSERT INTO portfolios (title, name, profileimage, phonenum, email, onelinecontent, stack, content, create_time, update_time) VALUES ('꽁꽁 얼어붙은 한강 위로', '김민규', 'ssss', '01012613597', 'msmk908@gmail.com', '강아지', '리액트', '김민규가 걸어다닙니다.', now(), now())
+INSERT INTO portfolios (title, name, profileimage, phonenum, email, onelinecontent, stack, content) VALUES ('꽁꽁 얼어붙은 한강 위로', '백민규', 'dddd', '01035971261', 'msmk908@naver.com', '고양이', '스프링부트', '고양이가 걸어다닙니다.')
+INSERT INTO portfolios (title, name, profileimage, phonenum, email, onelinecontent, stack, content) VALUES ('꽁꽁 얼어붙은 한강 위로', '김민규', 'ssss', '01012613597', 'msmk908@gmail.com', '강아지', '리액트', '김민규가 걸어다닙니다.')

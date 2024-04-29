@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class UpdatePortfolioRequest {
     private String title;
     private String name;
-    private String profileImage;
-    private String phoneNum;
+    private String profileimage;
+    private String phonenum;
     private String email;
-    private String oneLineContent;
+    private String onelinecontent;
     private String stack;
     private String content;
 }

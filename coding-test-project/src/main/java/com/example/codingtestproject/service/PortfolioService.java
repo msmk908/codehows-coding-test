@@ -43,8 +43,8 @@ public class PortfolioService {
         Portfolio portfolio = portfolioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
 
-        portfolio.update(request.getTitle(), request.getName(), request.getProfileImage(),
-                request.getPhoneNum(), request.getEmail(), request.getOneLineContent(),
+        portfolio.update(request.getTitle(), request.getName(), request.getProfileimage(),
+                request.getPhonenum(), request.getEmail(), request.getOnelinecontent(),
                 request.getStack(), request.getContent());
 
         return portfolio;

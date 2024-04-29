@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>포트폴리오 리스트</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>포트폴리오 리스트</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li th:each="portfolio : ${portfolios}" class="list-group-item">
+                    <a th:href="@{/portfolios/{id}(id=${portfolio.id})}" th:text="${portfolio.title}">Portfolio Title</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
