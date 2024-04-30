@@ -11,10 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -35,15 +32,12 @@ public class PortfolioViewController {
         return "main";
     }
 
-    @GetMapping("/portfolios")
-    public String showPortfolios(Model model) {
-        List<Portfolio> portfolios = portfolioService.findAll();
-        model.addAttribute("portfolios", portfolios);
-        return "portfolios";
-    }
-
     @GetMapping("/portfolioList")
-    public String portfolioList(){
+    public String portfolioList(Model model){
+        List<Portfolio> portfolios = portfolioService.findAll();
+
+        model.addAttribute("portfolios", portfolios);
+
         return "portfolioList";
     }
 
@@ -54,7 +48,6 @@ public class PortfolioViewController {
 
     @PostMapping("/savePortfolio")
     public ResponseEntity<Portfolio> savePortfolio(@RequestBody AddPortfolioRequest addPortfolioRequest) {
-        System.out.println(addPortfolioRequest.getTitle());
         String title = addPortfolioRequest.getTitle();
         String name = addPortfolioRequest.getName();
         String profileimage = addPortfolioRequest.getProfileimage();
@@ -83,6 +76,11 @@ public class PortfolioViewController {
         return new ResponseEntity<>(portfolio, HttpStatus.CREATED);
     }
 
+    @PutMapping("/mainportfolios/{portfolioId}")
+    public ResponseEntity<String> setMainPortfolio(@PathVariable Long portfolioId) {
+        portfolioService.setMainPortfolio(portfolioId);
+        return ResponseEntity.ok("포트폴리오가 선택되었습니다.");
+    }
 
 
 }

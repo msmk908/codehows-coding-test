@@ -50,4 +50,19 @@ public class PortfolioService {
         return portfolio;
     }
 
+    public void setMainPortfolio(Long portfolioId) {
+        // 선택한 포트폴리오의 main 값을 true로 설정
+        Portfolio portfolio = portfolioRepository.findById(portfolioId)
+                .orElseThrow(() -> new IllegalArgumentException("포트폴리오를 찾을 수 없습니다: " + portfolioId));
+
+        // 모든 포트폴리오를 검색하여 main 값을 false로 설정
+        List<Portfolio> allPortfolios = portfolioRepository.findAll();
+        for (Portfolio p : allPortfolios) {
+            p.setMain(false);
+            portfolioRepository.save(p);
+        }
+
+        portfolio.setMain(true);
+        portfolioRepository.save(portfolio);
+    }
 }
