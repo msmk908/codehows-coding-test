@@ -17,8 +17,8 @@ public class PortfolioService {
     private final PortfolioRepository portfolioRepository;
 
     // 포트폴리오 글 추가 메서드
-    public Portfolio save(AddPortfolioRequest request){
-        return portfolioRepository.save(request.toEntity());
+    public void save(Portfolio portfolio) {
+        portfolioRepository.save(portfolio);
     }
 
     // 저장되어 있는 글을 모두 가져오는 메서드

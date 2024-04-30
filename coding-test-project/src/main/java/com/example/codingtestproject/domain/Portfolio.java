@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Table(name = "portfolios")
 @Entity
 @Getter @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class Portfolio {
 
     @Id // 기본키
@@ -18,7 +18,7 @@ public class Portfolio {
     @Column(name = "portfolio_id", updatable = false)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "name")
@@ -33,13 +33,13 @@ public class Portfolio {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "onelinecontent")
+    @Column(name = "onelinecontent", nullable = false)
     private String onelinecontent;
 
-    @Column(name = "stack")
+    @Column(name = "stack", nullable = false)
     private String stack;
 
-    @Column(name = "content")
+    @Column(name = "content", nullable = false)
     private String content;
 
     @CreatedDate // 엔티티가 생성될 때 생성 시간 저장

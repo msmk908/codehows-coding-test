@@ -19,17 +19,4 @@ public class AddPortfolioRequest {
     private String stack;
     private String content;
 
-    public Portfolio toEntity(){ // 생성자를 사용해 객체 생성
-        return Portfolio.builder()
-                .title(title)
-                .name(name)
-                .profileimage(profileimage)
-                .phonenum(phonenum)
-                .email(email)
-                .onelinecontent(onelinecontent)
-                .stack(stack)
-                .content(content)
-                .build();
-    }
-
 }

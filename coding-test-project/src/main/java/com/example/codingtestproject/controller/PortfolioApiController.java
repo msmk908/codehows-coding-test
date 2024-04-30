@@ -18,18 +18,6 @@ public class PortfolioApiController {
 
     private final PortfolioService portfolioService;
 
-    // HTTP 메서드가 POST일 때 전달받은 URL과 동일하면 메서드로 매핑
-    @PostMapping("/api/portfolios")
-    // @RequestBody로 요청 본문 값 매핑
-    public ResponseEntity<Portfolio> addPortfolio(@RequestBody AddPortfolioRequest request){
-        Portfolio savedPortfolio = portfolioService.save(request);
-
-        // 요청한 자원이 성공적으로 생성되었으며 저장된 포트폴리오 글 정보를 응답 객체에 담아 전송
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(savedPortfolio);
-
-    }
-
     @GetMapping("/api/portfolios")
     public ResponseEntity<List<PortfolioListViewResponse>> findAllPortfolio(){
         List<PortfolioListViewResponse> portfolios = portfolioService.findAll()

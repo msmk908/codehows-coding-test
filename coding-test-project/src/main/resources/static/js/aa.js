@@ -34,9 +34,3 @@ function updateBoardList() {
         $("#boardList").html(data);
     });
 }
-
-/*
-const btn_sumit =  document.getElementById('saveButton');
-btn_sumit.addEventListener('click', function(event){
-    alert('Hello world, '+event.target.value);
-});*/
